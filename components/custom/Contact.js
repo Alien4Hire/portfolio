@@ -6,6 +6,7 @@ import FormControl from '@material-ui/core/FormControl';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import { blue } from '@material-ui/core/colors';
 import Checkbox from '@material-ui/core/Checkbox';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const GreenRadio = withStyles({
     root: {
@@ -33,7 +34,7 @@ const Contact = () => {
     const [focus, setFocus] = useState(false);
     const [value, setValue] = React.useState('');
     const [help, setHelp] = useState('');
-    const [description, setDiscription] = useState('');
+    const [description, setDescription] = useState('');
     const [start, setStart] = useState('');
     const [skill, setSkill] = useState([]);
     const [type, setType] = useState('');
@@ -44,6 +45,8 @@ const Contact = () => {
     const [yourName, setYourName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
+    const [submitted, setSubmitted] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     
     const skills = [
@@ -75,7 +78,7 @@ const Contact = () => {
       setHelp(event.target.value);
     };
     const handleStepTwoChange = (event) => {
-      setDescription(event.target.value);
+        setDescription(event.target.value);
     };
     const handleStepThreeChange = (event) => {
         setStart(event.target.value);
@@ -101,6 +104,54 @@ const Contact = () => {
     const handleStepTenChange = (event) => {
         setPhone(event.target.value);
     };
+    
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setLoading(true);
+        let data = {
+            yourName, 
+            email, 
+            phone, 
+            help,
+            description,
+            start,
+            skill,
+            type,
+            companyName,
+            size,
+            projectName
+        }
+        fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json, text/plain, */*',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+          }).then((res) => {
+            console.log('Response received')
+            console.log(res);
+            if (res.status === 200) {
+              console.log('Response succeeded!')
+              setSubmitted(true);
+              setEmail('');
+              setPhone('');
+              setHelp('');
+              setDescription('');
+              setYourName('');
+              setStart('');
+              setSkill('');
+              setType('');
+              setCompanyName('');
+              setSize('');
+              setProjectName('');
+              setLoading(false);
+              setStep(0);
+          } else {
+              setLoading(false);
+          }
+        })
+    }
 
     const handleUpdate = (index) => {
         let update = checked.find(x=> x.name === checked[index].name); 
@@ -145,7 +196,7 @@ const Contact = () => {
             content: 
                 <div className="form-container">
                 <FormControl component="fieldset">
-                <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleStepOneChange}>
+                <RadioGroup aria-label="gender" name="gender1" value={help} onChange={handleStepOneChange} onFocus={handleFocus}>
                     <FormControlLabel value="New project" control={<GreenRadio />} label="New project" />
                     <FormControlLabel value="Current project that needs more developers" control={<GreenRadio />} label="Current project that needs more developers" />
                     <FormControlLabel value="Consultancy, code review, or debugging" control={<GreenRadio />} label="Consultancy, code review, or debugging" />
@@ -272,7 +323,7 @@ const Contact = () => {
                         </div>
                     </div>
                     <div className="text-field-7">
-                        <label>SKYPE OR PHONE(including country code)*</label>
+                        <label>PHONE OR SKYPE</label>
                         <div className="text-box-7">
                             <input type="text" required value={phone} onFocus={handleChange} onChange={handleStepTenChange} style={{width: '105%', height: '105%', paddingLeft: '10px'}} />
                         </div>
@@ -302,7 +353,11 @@ const Contact = () => {
                                     </div>
                                     }
                                     <div className="button-container-c">
-                                        <button className="yellow-btn" onClick={() => changeStep(1)}>{index === 6 ? 'Submit' : 'Next'}</button>
+                                    {index === 6 ? 
+                                        <button className="yellow-btn" onClick={(e) => handleSubmit(e)}>{loading ? <CircularProgress size={18}/> : 'Submit'}</button>
+                                        :
+                                        <button className="yellow-btn" onClick={() => changeStep(1)}>Next</button>
+                                    }
                                     </div>
                                     </div>
                                     </div>
