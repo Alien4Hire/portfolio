@@ -25,7 +25,7 @@ export default function TextArea({ home, pre, title, subtitle, children }) {
                   <Span>
                       <div>Hi,</div>
                       <div>
-                          I'm <span><img src={"/img/jj.png"} alt="" className="special-j"/></span> ason,
+                          I'm <span><img src={"/img/jj.png"} alt="J" className="special-j"/></span> ason,
                       </div>
                       <div>
                           Web Developer!
