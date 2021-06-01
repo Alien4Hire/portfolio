@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import Router from 'next/router'
 import '../styles/globals.css'
 import '../styles/App.scss';

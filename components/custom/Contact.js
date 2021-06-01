@@ -302,7 +302,7 @@ const Contact = () => {
                                     </div>
                                     }
                                     <div className="button-container-c">
-                                        <button className="yellow-btn" onClick={() => changeStep(1)}>Next</button>
+                                        <button className="yellow-btn" onClick={() => changeStep(1)}>{index === 6 ? 'Submit' : 'Next'}</button>
                                     </div>
                                     </div>
                                     </div>

@@ -74,7 +74,7 @@ const Tech = () => {
                 <div className="tech-box">
                 {Items.map((item, index) => {
                     return (
-                        <div className="single-tech-box">
+                        <div className="single-tech-box" key={index}>
                             <img src={`/img/icons${item.icon}`} alt={item.name} className="icon-box"/>
                             <p className="tech-text">{item.name}</p>
                         </div>
