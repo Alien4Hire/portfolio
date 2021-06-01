@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Typing from "react-typing-animation";
 import Link from "next/link";
+import Image from 'next/image';
 import { Container, Span, Sub, Paragraph, Title } from "./styles";
 
 export default function TextArea({ home, pre, title, subtitle, children }) {
@@ -25,7 +26,7 @@ export default function TextArea({ home, pre, title, subtitle, children }) {
                   <Span>
                       <div>Hi,</div>
                       <div>
-                          I'm <span><img src={"/img/jj.png"} alt="J" className="special-j"/></span> ason,
+                          I'm <span><Image src={"/img/jj.png"} alt="J" priority={true} height={50} width={30} className="special-j"/></span> ason,
                       </div>
                       <div>
                           Web Developer!
