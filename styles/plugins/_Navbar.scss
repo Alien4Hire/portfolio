@@ -1,0 +1,20 @@
+.menu-top {
+    position: absolute;
+    font-size: 18px;
+    color: #fff;
+    right: 100px;
+    top: 40px;
+    z-index: 10;
+}
+
+.menu-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    width: 600px;
+    text-decoration: none;
+}
+
+.root-header {
+    overflow-x: hidden;
+    max-width: 100vw;
+}

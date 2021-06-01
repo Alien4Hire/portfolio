@@ -1,0 +1,36 @@
+.tech-component {
+    display: grid;
+    justify-items: center;
+    margin-top: 100px;
+}
+
+.tech-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    width: 1200px;
+}
+
+.single-tech-box {
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    border: 1px solid #d7dce2;
+    width: 265px;
+    height: 92px;
+    color: #5e5e5e;
+    font-size: 24px;
+    margin: 10px;
+    justify-items: center;
+    align-items: center;
+    text-align: left;
+}
+
+.icon-box {
+    position: relative;
+    top: 0px;
+    padding-left: 15px;
+}
+
+.tech-text {
+    width: 150px;
+}
