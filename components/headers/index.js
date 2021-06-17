@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Typing from '../custom/Typing'
 import Nav from '../navbar'
 import Link from 'next/link';
 
 
 const Header = () => {
+    const [isLoaded, setIsLoaded] = useState(false);
+
     return (
         <React.Fragment>
             <Nav />
@@ -24,6 +26,8 @@ const Header = () => {
                     // pre={"Hi,~I'm Jason,~Web Developer!"}
                     title={`Hi,~I'm Jason,~Web Developer!`}
                     subtitle={"Full Stack Developer / React Expert"}
+                    setIsLoaded={setIsLoaded}
+                    isLoaded={isLoaded}
                 />
             </div>
             <Link href="#technologies">

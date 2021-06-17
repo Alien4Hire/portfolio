@@ -1,0 +1,22 @@
+.footer-container {
+    background-color: #101e29;
+    height: 500px;
+    display: grid;
+    justify-items: right;
+}
+
+.inner-footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    width: 80%;
+    height: 400px;
+    color: #bdbdbd;
+    margin-top: 20px;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.sub-footer-links {
+    font-size: 15px;
+    font-weight: normal;
+}

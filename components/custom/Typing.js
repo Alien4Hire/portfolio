@@ -1,12 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Typing from "react-typing-animation";
 import Link from "next/link";
 import Image from 'next/image';
 import { Container, Span, Sub, Paragraph, Title } from "./styles";
+import {useRouter} from 'next/router';
 
-export default function TextArea({ home, pre, title, subtitle, children }) {
+export default function TextArea({ home, pre, title, subtitle, children, isLoaded, setIsLoaded }) {
     const [actived, setActived] = useState(false);
-    const [buttonHover, setButtonHover] = useState(false)
+    const [buttonHover, setButtonHover] = useState(false);
+    const router = useRouter();
+    const ref = useRef(null);
+
+    useEffect(() => {
+      if ((ref.current?.firstChild?.firstChild)?.complete) {
+        setLoaded(true)
+      }
+    }, [])
     
   
     return (
@@ -25,8 +34,8 @@ export default function TextArea({ home, pre, title, subtitle, children }) {
               <Typing.Speed ms={800} />
                   <Span>
                       <div>Hi,</div>
-                      <div>
-                          I'm <span><Image src={"/img/jj.png"} alt="J" loading={'eager'} eager priority={true} height={50} width={30} className="special-j"/></span> ason,
+                      <div ref={ref}>
+                          I'm <span><Image src={"/img/jj.png"} alt="J" onLoad={() => setIsLoaded(true)} loading={'eager'} eager priority={true} height={50} width={30} className="special-j"/></span> ason,
                       </div>
                       <div>
                           Web Developer!
@@ -57,7 +66,7 @@ export default function TextArea({ home, pre, title, subtitle, children }) {
                           <Typing.Speed ms={1} />
                           <Span><span> </span><span> </span></Span>
                           <Typing.Speed ms={50} />
-                          <span><img src={"/img/jj.png"} alt="" className="special-j"/></span>
+                          <span ref={ref}><img src={"/img/jj.png"} alt="J" className="special-j"/></span>
                           <Span key={Math.random()} name="rubberBand">a</Span>
                           <Span key={Math.random()} name="rubberBand">s</Span>
                           <Span key={Math.random()} name="rubberBand">o</Span>
@@ -96,11 +105,16 @@ export default function TextArea({ home, pre, title, subtitle, children }) {
               id={buttonHover ? 'desc-hover' : 'desc-button' }
               onMouseEnter={() => setButtonHover(true)}
               onMouseLeave={() => setButtonHover(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                router.push('#contact');
+              }}
               style={{animation: `buttonFade 6s`}}
               >Contact me!</button>
           </Link>
         )}
         <Paragraph>{children}</Paragraph>
+        
       </Container>
     )
 }

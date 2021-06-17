@@ -5,6 +5,8 @@ import Tech from '../components/custom/Technologies'
 import Portfolio from '../components/custom/WorkSamples'
 import Reviews from '../components/custom/Reviews'
 import Contact from '../components/custom/Contact'
+import Icon from '../components/custom/IconsPage'
+import Footer from '../components/footers'
 
 export default function Home() {
   return (
@@ -20,6 +22,8 @@ export default function Home() {
         <Portfolio />
         <Reviews />
         <Contact />
+        <Icon />
+        <Footer />
       </div>
     </div>
   )

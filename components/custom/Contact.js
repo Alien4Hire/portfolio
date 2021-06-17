@@ -335,7 +335,7 @@ const Contact = () => {
 
     return (
         <React.Fragment>
-            <div className="contact-container">
+            <div className="contact-container" id="contact">
                 <div className="contact-inner-container">
                     {data.map((item, index) => {
                         return (
