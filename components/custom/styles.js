@@ -92,15 +92,17 @@ export const Span = styled.span`
     }
   }
 
-  @media screen and (min-width: 320px) and (max-width: 819px) and (orientation: landscape) {
-    font-size: 7.1vw;
-    line-height: 7vw;
+  @media screen (max-width: 599px) {
+    font-size: 30px;
+    line-height: 40px;
   }
 
-  @media screen and (min-height: 320px) and (max-height: 819px) and (orientation: portrait) {
-    font-size: 7vw;
-    line-height: 8vw;
+  @media (max-width: 498px) {
+    font-size: 25px;
+    line-height: 40px;
   }
+
+
 `;
 
 export const Sub = styled.h2`
@@ -119,6 +121,11 @@ export const Sub = styled.h2`
   &.active {
     animation: ${toAnimate} 2s backwards;
     opacity: 1;
+  }
+
+  @media(max-width: 480px) {
+    margin-top: 10px;
+    width: 280px;
   }
 
   @media screen and (min-height: 320px) and (max-height: 819px) and (orientation: portrait) {

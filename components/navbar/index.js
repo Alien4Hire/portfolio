@@ -34,7 +34,7 @@ const Nav = () => {
                 <div className="menu-list">
                     {Items.map((item, index) => {
                         return (
-                            <div key={index}>
+                            <div key={index} className="menu-text">
                                 <Link href={item.link}>
                                     <p key={index}>
                                         {item.name}
@@ -44,6 +44,9 @@ const Nav = () => {
                         )
                     })}
                 </div>
+            </div>
+            <div className="mobile-menu">
+                    <i className="fa fa-bars" style={{fontStyle: 'normal'}}/>
             </div>
         </React.Fragment>
     )

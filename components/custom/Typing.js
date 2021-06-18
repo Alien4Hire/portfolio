@@ -33,11 +33,11 @@ export default function TextArea({ home, pre, title, subtitle, children, isLoade
             <React.Fragment>
               <Typing.Speed ms={800} />
                   <Span>
-                      <div>Hi,</div>
-                      <div ref={ref}>
+                      <div className="text-size">Hi,</div>
+                      <div ref={ref} className="text-size">
                           I'm <span><Image src={"/img/jj.png"} alt="J" onLoad={() => setIsLoaded(true)} loading={'eager'} eager priority={true} height={50} width={30} className="special-j"/></span> ason,
                       </div>
-                      <div>
+                      <div className="text-size">
                           Web Developer!
                       </div>
                   </Span>
@@ -45,11 +45,11 @@ export default function TextArea({ home, pre, title, subtitle, children, isLoade
               <Typing.Backspace count={32} delay={100} speed={3000} />
               <Typing.Speed ms={2000} />
                   <Span>
-                      <div>Hi,</div>
-                      <div>
+                      <div className="text-size">Hi,</div>
+                      <div className="text-size">
                           I'm <span><img src={"/img/jj.png"} alt="" className="special-j"/></span> ason,
                       </div>
-                      <div>
+                      <div className="text-size">
                           Web Developer!
                       </div>
                   </Span>
@@ -58,38 +58,38 @@ export default function TextArea({ home, pre, title, subtitle, children, isLoade
             <React.Fragment>
               <Typing.Speed ms={50} />
                   <span >
-                      <div><Span key={Math.random()} name="rubberBand">H</Span ><Span key={Math.random()} name="rubberBand">i</Span><Span key={Math.random()} name="rubberBand">,</Span></div>
-                      <div>
-                          <Span key={Math.random()} name="rubberBand">I</Span>
-                          <Span key={Math.random()} name="rubberBand">'</Span>
-                          <Span key={Math.random()} name="rubberBand">m</Span>
+                      <div className="typing-width"><Span key={Math.random()} className="text-size" className="text-size" name="rubberBand">H</Span ><Span key={Math.random()} className="text-size" name="rubberBand">i</Span><Span key={Math.random()} className="text-size" name="rubberBand">,</Span></div>
+                      <div className="typing-width">
+                          <Span key={Math.random()} className="text-size" name="rubberBand">I</Span>
+                          <Span key={Math.random()} className="text-size" name="rubberBand">'</Span>
+                          <Span key={Math.random()} className="text-size" name="rubberBand">m</Span>
                           <Typing.Speed ms={1} />
                           <Span><span> </span><span> </span></Span>
                           <Typing.Speed ms={50} />
                           <span ref={ref}><img src={"/img/jj.png"} alt="J" className="special-j"/></span>
-                          <Span key={Math.random()} name="rubberBand">a</Span>
-                          <Span key={Math.random()} name="rubberBand">s</Span>
-                          <Span key={Math.random()} name="rubberBand">o</Span>
-                          <Span key={Math.random()} name="rubberBand">n</Span>
-                          <Span key={Math.random()} name="rubberBand">,</Span>
+                          <Span key={Math.random()} className="text-size" name="rubberBand">a</Span>
+                          <Span key={Math.random()} className="text-size" name="rubberBand">s</Span>
+                          <Span key={Math.random()} className="text-size" name="rubberBand">o</Span>
+                          <Span key={Math.random()} className="text-size" name="rubberBand">n</Span>
+                          <Span key={Math.random()} className="text-size" name="rubberBand">,</Span>
                       </div>
-                      <div>
-                          <Span key={Math.random()} name="rubberBand">W</Span>
-                          <Span key={Math.random()} name="rubberBand">e</Span>
-                          <Span key={Math.random()} name="rubberBand">b</Span>
+                      <div className="typing-width">
+                          <Span key={Math.random()} className="text-size" name="rubberBand">W</Span>
+                          <Span key={Math.random()} className="text-size" name="rubberBand">e</Span>
+                          <Span key={Math.random()} className="text-size" name="rubberBand">b</Span>
                           <Typing.Speed ms={1} />
                           <Span><span> </span><span> </span></Span>
                           <Typing.Speed ms={50} />
-                          <Span key={Math.random()} name="rubberBand">D</Span>
-                          <Span key={Math.random()} name="rubberBand">e</Span>
-                          <Span key={Math.random()} name="rubberBand">v</Span>
-                          <Span key={Math.random()} name="rubberBand">e</Span>
-                          <Span key={Math.random()} name="rubberBand">l</Span>
-                          <Span key={Math.random()} name="rubberBand">o</Span>
-                          <Span key={Math.random()} name="rubberBand">p</Span>
-                          <Span key={Math.random()} name="rubberBand">e</Span>
-                          <Span key={Math.random()} name="rubberBand">r</Span>
-                          <Span key={Math.random()} name="rubberBand">!</Span>
+                          <Span key={Math.random()} className="text-size" name="rubberBand">D</Span>
+                          <Span key={Math.random()} className="text-size" name="rubberBand">e</Span>
+                          <Span key={Math.random()} className="text-size" name="rubberBand">v</Span>
+                          <Span key={Math.random()} className="text-size" name="rubberBand">e</Span>
+                          <Span key={Math.random()} className="text-size" name="rubberBand">l</Span>
+                          <Span key={Math.random()} className="text-size" name="rubberBand">o</Span>
+                          <Span key={Math.random()} className="text-size" name="rubberBand">p</Span>
+                          <Span key={Math.random()} className="text-size" name="rubberBand">e</Span>
+                          <Span key={Math.random()} className="text-size" name="rubberBand">r</Span>
+                          <Span key={Math.random()} className="text-size" name="rubberBand">!</Span>
                       </div>
                   </span>
             </React.Fragment>

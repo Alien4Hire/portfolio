@@ -548,6 +548,14 @@
     }
 }
 
+@media (max-width: 1443px) {
+    .typing-container {
+        position: absolute;
+        top: 0px;
+        left: 70px;
+    }
+}
+
 @media (max-width: 1353px) {
     #header-video {
         left: -100px;
@@ -571,10 +579,15 @@
     .typing-container {
         position: absolute;
         top: 0px;
-        left: 100px;
+        left: 70px;
     }
 }
 
+@media (max-width: 983) {
+    .typing-container {
+        left: -30px;
+    }
+}
 
 @media (min-width: 915px) {
     .content-mobile {
@@ -610,4 +623,138 @@
     }
 }
 
+@media (max-width: 599px) {
+    .typing-box {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 571px) {
+    .typing-container {
+        left: -30px;
+    }
+}
+
+@media (max-width: 531px) {
+    .typing-container {
+        left: -50px;
+    }
+}
+
+@media (max-width: 531px) {
+    .typing-container {
+        left: -60px;
+    }
+}
+
+@media (max-width: 565px) {
+    .text-size {
+        font-size: 50px !important;
+    }
+    .below-typing {
+        font-size: 20px;
+        letter-spacing: 2px;
+    }
+}
+
+@media (max-width: 499px) {
+    .typing-container {
+        left: -60px;
+
+    }
+    .text-size {
+        font-size: 45px !important;
+    }
+    .special-j {
+        width: 40px;
+    }
+}
+
+@media (max-width: 487px) {
+    .below-typing {
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
+    .diqOGS {
+        width: 370px;
+    }
+}
+
+@media (max-width: 403px) {
+    .text-size {
+        font-size: 40px !important;
+    }
+    .diqOGS {
+        width: 360px;
+    }
+    .typing-container {
+        position: absolute;
+        top: -40px;
+    }
+}
+
+@media (max-width: 375px) {
+    .typing-container {
+        left: -70px;
+    }
+    .diqOGS {
+        width: 350px;
+    }
+}
+
+@media (max-width: 375px) {
+    .diqOGS {
+        width: 340px;
+    }
+}
+
+@media (max-width: 361px) {
+    .text-size {
+        font-size: 35px !important;
+    }
+    .diqOGS {
+        width: 310px;
+    }
+}
+
+@media (max-width: 361px) {
+    .typing-width {
+        width: 290px;
+    }
+}
+
+@media (max-width: 331px) {
+    .text-size {
+        font-size: 35px !important;
+    }
+    .diqOGS {
+        width: 280px;
+    }
+    .typing-container {
+        left: -70px;
+        background-color: transparent !important;
+        width: 280px;
+    }
+}
+
+@media (max-width: 319px) {
+    .typing-container {
+        left: -80px;
+        padding-left: 10px;
+    }
+}
+
+@media (max-width: 303px) {
+    .text-size {
+        font-size: 30px !important;
+    }
+    .typing-container {
+        width: 340px;
+        overflow: hidden;
+    }
+    .typing-width {
+        width: 250px;
+        margin-right: 0px;
+    }
+}
 
