@@ -33,7 +33,7 @@ const ContactPage: React.FC = () => {
       <div className="max-w-5xl mx-auto w-full">
         <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-center">Get In Touch</h1>
         <p className="text-lg text-gray-400 mb-12 text-center">
-          Have a project in mind or just want to say hello? I'd love to hear from you.
+          Have a project in mind or just want to say hello? I&apos;d love to hear from you.
         </p>
         
         <div className="bg-[#2a2a2a] p-8 rounded-xl shadow-lg hover:shadow-teal-400/20 transition-shadow duration-300">
@@ -41,9 +41,9 @@ const ContactPage: React.FC = () => {
             
             {/* Left Column: Contact Info */}
             <div className="flex flex-col justify-center">
-              <h2 className="text-3xl font-bold text-white mb-4">Let's Connect</h2>
+              <h2 className="text-3xl font-bold text-white mb-4">Let&apos;s Connect</h2>
               <p className="text-gray-300 mb-6">
-                I'm currently seeking new opportunities and am open to collaboration. Feel free to reach out via email or connect with me on social media.
+                I&apos;m currently seeking new opportunities and am open to collaboration. Feel free to reach out via email or connect with me on social media.
               </p>
               <div className="space-y-4">
                 <a href="mailto:jaymaynard84@gmail.com" className="flex items-center gap-3 text-lg text-gray-300 hover:text-teal-400 transition-colors">
@@ -66,7 +66,7 @@ const ContactPage: React.FC = () => {
               {isSubmitted ? (
                 <div className="flex flex-col items-center justify-center h-full bg-gray-800/50 p-8 rounded-lg">
                   <h3 className="text-2xl font-bold text-teal-400 mb-2">Thank You!</h3>
-                  <p className="text-center text-gray-300">Your message has been sent. I'll get back to you shortly.</p>
+                  <p className="text-center text-gray-300">Your message has been sent. I&apos;ll get back to you shortly.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
