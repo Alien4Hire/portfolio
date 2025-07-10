@@ -51,7 +51,7 @@ const TypingHero = () => {
   const { displayedLines, isFinished } = useTypingEffect(LINES);
 
   // Cursor blinking after typing ends
-  const [blinkCount, setBlinkCount] = useState(0);
+  const [, setBlinkCount] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
 
   useEffect(() => {

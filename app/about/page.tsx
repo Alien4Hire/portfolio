@@ -27,7 +27,7 @@ const AboutSection = () => {
           <div className="text-center md:text-left">
             <h2 className="text-4xl font-bold text-teal-400 mb-3">About Me</h2>
             <p className="leading-relaxed text-lg">
-              I'm a Full Stack Engineer who builds scalable applications and solves complex problems. I've architected enterprise platforms for major companies like Optum and Macmillan Learning and have also launched my own direct-to-consumer brand, giving me a unique blend of corporate and entrepreneurial experience.
+              I&apos;m a Full Stack Engineer who builds scalable applications and solves complex problems. I&apos;ve architected enterprise platforms for major companies like Optum and Macmillan Learning and have also launched my own direct-to-consumer brand, giving me a unique blend of corporate and entrepreneurial experience.
             </p>
           </div>
         </div>
@@ -39,7 +39,7 @@ const AboutSection = () => {
             <li><span className="font-semibold text-teal-400">Leadership:</span> Proven experience leading development teams and mentoring junior engineers.</li>
             <li><span className="font-semibold text-teal-400">Full-Stack Expertise:</span> Comprehensive skills in React, Node.js, and AWS microservices architecture.</li>
             <li><span className="font-semibold text-teal-400">Innovative Problem-Solving:</span> A history of tackling unique challenges, from building custom IoT systems to integrating Elasticsearch.</li>
-            <li><span className="font-semibold text-teal-400">Business Acumen:</span> A founder's perspective on product design, marketing, and aligning technical solutions with business goals.</li>
+            <li><span className="font-semibold text-teal-400">Business Acumen:</span> A founder&apos;s perspective on product design, marketing, and aligning technical solutions with business goals.</li>
           </ul>
         </div>
 
