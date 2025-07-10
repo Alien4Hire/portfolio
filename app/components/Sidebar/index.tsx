@@ -23,11 +23,12 @@ const Sidebar: React.FC = () => {
         {/* Top: Logo and Title */}
         <Link href="/" className="flex flex-col items-center gap-3 cursor-pointer">
           <Image
-            src="/images/j1.png"
+            src="/images/J-logo.png"
             alt="Logo"
             width={60}
             height={60}
             className="mb-2"
+            priority
           />
           <h1 className="text-xl font-bold">Jason</h1>
           <p className="text-[12px] text-gray-400 font-light tracking-wide">Web Developer</p>

@@ -97,7 +97,7 @@ const TypingHero = () => {
                       style={{ verticalAlign: 'bottom' }}
                     >
                       <Image
-                        src="/images/j1.png"
+                        src="/images/J-logo.png"
                         alt="J"
                         width={60}
                         height={85}
