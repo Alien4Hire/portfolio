@@ -29,7 +29,7 @@ const AboutSectionMobile = () => {
           <div className="text-center">
             <h2 className="text-2xl font-extrabold text-teal-400 mb-2 tracking-wide md:tracking-normal drop-shadow-md">About Me</h2>
             <p className="leading-snug text-sm font-light subpixel-antialiased">
-              I&apos;m a **Full Stack Engineer** who builds scalable applications and solves complex problems. I&apos;ve architected enterprise platforms for major companies like Optum and Macmillan Learning and have also launched my own direct-to-consumer brand, giving me a unique blend of corporate and entrepreneurial experience.
+              I&apos;m a <strong>Full Stack Engineer</strong> who builds scalable applications and solves complex problems. I&apos;ve architected enterprise platforms for major companies like Optum and Macmillan Learning and have also launched my own direct-to-consumer brand, giving me a unique blend of corporate and entrepreneurial experience.
             </p>
           </div>
         </div>
