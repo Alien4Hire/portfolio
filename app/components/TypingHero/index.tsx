@@ -74,11 +74,6 @@ const TypingHero = () => {
   return (
     <div className="w-full max-w-lg md:max-w-none mx-auto md:mx-0">
       <div className="relative">
-        {/*
-          minHeight is critical for preventing layout shift.
-          text-5xl for mobile is restored, sm:text-6xl for intermediate, md:text-7xl for desktop.
-          Explicit line-height `leading-[1.2]` helps stabilize.
-        */}
         <div
           className="text-5xl sm:text-6xl md:text-7xl font-bold leading-tight leading-[1.2] invisible"
           style={{ minHeight: '160px' }} // Keep this min-height as it's proven to prevent shifts
@@ -88,7 +83,6 @@ const TypingHero = () => {
           ))}
         </div>
 
-        {/* Typing output: Apply same font sizes and line-height as invisible div */}
         <h1
           // *** CRITICAL FIX: Adjust 'top' position for mobile screens ***
           // Default top-0 for mobile, md:top-0 for desktop (no change needed for desktop here)
@@ -133,8 +127,6 @@ const TypingHero = () => {
           ))}
         </h1>
       </div>
-
-      {/* Subtitle and CTA: Adjusted margins and font sizes for mobile */}
       <div className={`mt-4 sm:mt-6 transition-opacity duration-1000 ${isFinished ? 'opacity-100' : 'opacity-0'}`}>
         <p className="mt-4 text-sm sm:text-base text-gray-400 tracking-wider">
           Front End Developer / WordPress Expert

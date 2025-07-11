@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
+import { usePathname } from 'next/navigation';
 import usePrefetchRoutes from '../../hooks/usePrefetchRoutes';
 
 interface SidebarProps {
@@ -21,6 +22,7 @@ const navItems = [
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, closeSidebar }) => {
   usePrefetchRoutes();
+  const pathname = usePathname(); // Get the current path
 
   return (
     <aside
@@ -28,7 +30,6 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, closeSidebar }) => {
         isOpen ? 'translate-x-0' : '-translate-x-full'
       }`}
     >
-      {/* Logo and Title */}
       <Link
         href="/"
         className="flex flex-col items-center gap-3 cursor-pointer"
@@ -55,7 +56,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, closeSidebar }) => {
                 href={path}
                 onClick={closeSidebar}
                 className={`block text-center border-t border-gray-700 py-3 w-full hover:bg-gray-800 hover:text-cyan-400 transition-all ${
-                  label === 'Blog' ? 'text-emerald-400' : ''
+                  pathname === path ? 'text-emerald-400' : '' // Apply emerald-400 if current path matches
                 }`}
               >
                 {label}
