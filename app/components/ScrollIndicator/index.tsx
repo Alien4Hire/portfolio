@@ -15,7 +15,6 @@ const ScrollIndicators: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-
   // Shared base styles
   const indicatorClasses = `fixed flex items-center gap-3 text-xs tracking-widest transition-opacity duration-300 z-50 [writing-mode:vertical-rl] ${
     show ? 'opacity-100' : 'opacity-0'
@@ -23,8 +22,8 @@ const ScrollIndicators: React.FC = () => {
 
   return (
     <>
-      {/* Left Scroll Indicator */}
-      <div className={`${indicatorClasses} bottom-10 left-[315px]`}>
+      {/* Left Scroll Indicator - Hidden on mobile, visible on md and up */}
+      <div className={`${indicatorClasses} bottom-10 left-[315px] hidden md:flex`}>
         <span className="text-gray-500">scroll down</span>
         <span className="text-white">&rarr;</span>
       </div>

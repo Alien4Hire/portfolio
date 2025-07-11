@@ -1,13 +1,13 @@
 'use client';
 
 import React from 'react';
-import { 
-  LayoutTemplate, 
-  Server, 
-  Database, 
-  CloudCog, 
-  TestTube2, 
-  BrainCircuit 
+import {
+  LayoutTemplate,
+  Server,
+  Database,
+  CloudCog,
+  TestTube2,
+  BrainCircuit
 } from 'lucide-react';
 
 // Defining the type for a single skill category
@@ -53,16 +53,16 @@ const skillData: SkillCategory[] = [
 
 // Reusable component for a single skill card
 const SkillCard: React.FC<{ category: SkillCategory }> = ({ category }) => (
-  <div className="bg-[#2a2a2a] p-6 rounded-xl shadow-lg hover:shadow-teal-400/20 transition-all duration-300 transform hover:-translate-y-1 h-full">
-    <div className="flex items-center mb-4">
-      <category.icon className="text-teal-400 mr-3" size={28} />
-      <h3 className="text-2xl font-bold text-white">{category.title}</h3>
+  <div className="bg-[#2a2a2a] p-5 rounded-xl shadow-lg hover:shadow-teal-400/20 transition-all duration-300 transform hover:-translate-y-1 h-full flex flex-col"> {/* Adjusted padding, added flex-col */}
+    <div className="flex items-center mb-3"> {/* Adjusted margin-bottom */}
+      <category.icon className="text-teal-400 mr-2" size={24} /> {/* Adjusted icon size and margin */}
+      <h3 className="text-xl font-bold text-white leading-tight">{category.title}</h3> {/* Adjusted font size and line height */}
     </div>
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap gap-2 mt-auto"> {/* Added mt-auto to push skills to bottom */}
       {category.skills.map((skill, index) => (
-        <span 
-          key={index} 
-          className="bg-gray-700 text-teal-300 text-sm font-medium px-3 py-1.5 rounded-full transition-colors duration-300 hover:bg-teal-500 hover:text-white cursor-default"
+        <span
+          key={index}
+          className="bg-gray-700 text-teal-300 text-xs font-medium px-2.5 py-1 rounded-full transition-colors duration-300 hover:bg-teal-500 hover:text-white cursor-default" // Adjusted font size and padding
         >
           {skill}
         </span>
@@ -71,17 +71,19 @@ const SkillCard: React.FC<{ category: SkillCategory }> = ({ category }) => (
   </div>
 );
 
-// Main SkillsPage component - Simplified for natural scrolling
+// Main SkillsPage component
 const SkillsPage: React.FC = () => {
   return (
-    <section className="min-h-screen bg-[#1a1a1a] text-white p-4 sm:p-8 md:p-12 flex items-center justify-center">
+    // section now uses pt-20 for top padding on mobile, then larger on md
+    <section className="min-h-screen bg-[#1a1a1a] text-white pt-20 pb-8 px-4 md:pt-24 md:pb-12 md:px-8 flex flex-col items-center">
       <div className="max-w-5xl mx-auto w-full">
-        <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-center">Technical Skills</h1>
-        <p className="text-lg text-gray-400 mb-12 text-center">
-          A collection of the technologies and tools I use to build modern web applications.
+        {/* Title adjusted for mobile, added mb-8 for space */}
+        <h1 className="text-4xl sm:text-5xl font-bold mb-8 text-center drop-shadow-lg text-teal-300">My Skills</h1> {/* Changed title, added shadow, teal color */}
+        <p className="text-md text-gray-400 mb-10 text-center px-2"> {/* Adjusted font size, mb, and added horizontal padding */}
+          A comprehensive overview of the technologies, tools, and methodologies I leverage to build robust and scalable web applications.
         </p>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6"> {/* Changed grid to 1 column on mobile, 2 on small screens */}
           {skillData.map((category, index) => (
             <SkillCard key={index} category={category} />
           ))}

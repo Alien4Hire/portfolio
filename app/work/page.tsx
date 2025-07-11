@@ -19,7 +19,7 @@ interface ProjectCardProps extends WorkExperience {
   isLast: boolean;
 }
 
-// Data for your work experience, now strongly typed with updated image paths
+// Data for your work experience (kept for context, no changes here)
 const workExperience: WorkExperience[] = [
   {
     role: 'Founder & Creative Director',
@@ -86,7 +86,8 @@ const workExperience: WorkExperience[] = [
 
 // Reusable component for a single project card
 const ProjectCard: React.FC<ProjectCardProps> = ({ role, company, duration, description, image, link, tech, isLast }) => (
-  <div className="relative pl-8 sm:pl-12 py-6 group">
+  // Adjusted padding for smaller screens (pl-8 for mobile, sm:pl-12 for tablets/larger mobiles, md:pl-12 for desktop)
+  <div className="relative pl-8 py-6 group sm:pl-12 md:pl-12">
     {/* Timeline line */}
     {!isLast && <div className="absolute top-0 left-4 h-full w-0.5 bg-gray-700 group-hover:bg-teal-400 transition-colors duration-300"></div>}
     
@@ -94,32 +95,36 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ role, company, duration, desc
     <div className="absolute top-6 left-4 transform -translate-x-1/2 w-4 h-4 bg-gray-800 border-2 border-gray-600 rounded-full group-hover:border-teal-400 transition-colors duration-300"></div>
 
     <div className="bg-[#2a2a2a] p-6 rounded-xl shadow-lg hover:shadow-teal-400/20 transition-all duration-300 transform hover:-translate-y-1">
-      <div className="md:flex md:gap-8">
-        {/* Image Section - Modified for better logo display */}
-        <div className="md:w-1/3 mb-4 md:mb-0 flex items-center justify-center bg-white/5 p-4 rounded-lg h-40">
-          <img 
-            src={image} 
-            alt={`${company} logo`} 
-            className="max-h-full max-w-full object-contain"
-            onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => { 
+      {/* Adjusted to stack on mobile (flex-col) and become a row on medium+ screens (md:flex-row) */}
+      <div className="flex flex-col md:flex-row md:gap-8">
+        {/* Image Section - **Updated for consistent mobile height** */}
+        {/* Takes full width on mobile, 1/3 on desktop. Height is now fixed `h-28` on mobile, `h-40` on desktop. */}
+        <div className="w-full h-28 md:w-1/3 mb-4 md:mb-0 flex items-center justify-center bg-white/5 p-4 rounded-lg md:h-40">
+          <img
+            src={image}
+            alt={`${company} logo`}
+            className="max-h-full max-w-full object-contain" // Keep object-contain to fit logos
+            onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
               const target = e.target as HTMLImageElement;
-              target.onerror = null; 
-              target.src='https://placehold.co/600x400/1a1a1a/ffffff?text=Image+Not+Found'; 
+              target.onerror = null;
+              target.src='https://placehold.co/600x400/1a1a1a/ffffff?text=Image+Not+Found';
             }}
           />
         </div>
         
-        {/* Content Section */}
-        <div className="md:w-2/3">
+        {/* Content Section - Takes full width on mobile, 2/3 on desktop */}
+        <div className="w-full md:w-2/3">
           <p className="text-sm text-teal-400 mb-1">{duration}</p>
-          <h3 className="text-2xl font-bold text-white">{role}</h3>
-          <p className="text-lg text-gray-400 mb-4">{company}</p>
+          {/* Adjusted font size for role: Smaller on mobile, then grows */}
+          <h3 className="text-xl sm:text-2xl font-bold text-white">{role}</h3>
+          {/* Adjusted font size for company: Smaller on mobile, then grows */}
+          <p className="text-base sm:text-lg text-gray-400 mb-4">{company}</p>
           
-          <ul className="list-disc list-inside space-y-2 mb-4 text-gray-300">
+          <ul className="list-disc list-inside space-y-2 mb-4 text-gray-300 text-sm sm:text-base"> {/* Adjusted font size for list items */}
             {description.map((item, index) => <li key={index}>{item}</li>)}
           </ul>
           
-          {/* Tech Stack */}
+          {/* Tech Stack - flex-wrap and gap are good */}
           <div className="flex flex-wrap gap-2 mb-4">
             {tech.map((skill, index) => (
               <span key={index} className="bg-gray-700 text-teal-300 text-xs font-medium px-2.5 py-1 rounded-full">{skill}</span>
@@ -128,7 +133,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ role, company, duration, desc
 
           {/* Optional Link */}
           {link && (
-            <a href={link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-teal-400 hover:text-teal-300 transition-colors">
+            <a href={link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-teal-400 hover:text-teal-300 transition-colors text-sm sm:text-base"> {/* Adjusted font size for link */}
               <LinkIcon size={16} />
               <span>Visit Project</span>
             </a>
@@ -139,7 +144,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ role, company, duration, desc
   </div>
 );
 
-// Main WorkPage component
+// Main WorkPage component (no changes needed here, keeping for completeness)
 const WorkPage: React.FC = () => {
   const scrollContainerRef = React.useRef<HTMLDivElement>(null);
   const [readyToNavigate, setReadyToNavigate] = React.useState(false);
@@ -151,15 +156,21 @@ const WorkPage: React.FC = () => {
     const container = scrollContainerRef.current;
     if (!container) return;
 
+    // Helper function to check if at bottom (to avoid repetition)
+    const isAtBottom = () => {
+        const { scrollTop, scrollHeight, clientHeight } = container;
+        const scrollBuffer = 5;
+        return scrollTop + clientHeight >= scrollHeight - scrollBuffer;
+    };
+    // Helper function to check if at top (to avoid repetition)
+    const isAtTop = () => {
+        const { scrollTop } = container;
+        return scrollTop <= 0;
+    };
+
     const handleWheel = (e: WheelEvent) => {
-      const { scrollTop, scrollHeight, clientHeight } = container;
-      const scrollBuffer = 5; // A small buffer for precision issues
-
-      const isAtTop = scrollTop <= 0;
-      const isAtBottom = scrollTop + clientHeight >= scrollHeight - scrollBuffer;
-
       // If user scrolls up, away from the bottom, reset the navigation lock
-      if (!isAtBottom) {
+      if (!isAtBottom()) { // Call the helper function
         setReadyToNavigate(false);
         if (readyTimeoutRef.current) {
           clearTimeout(readyTimeoutRef.current);
@@ -168,12 +179,12 @@ const WorkPage: React.FC = () => {
       }
 
       // Standard page scroll when at the top and scrolling up
-      if (isAtTop && e.deltaY < 0) {
+      if (isAtTop() && e.deltaY < 0) { // Call the helper function
         return;
       }
 
       // When at the bottom and scrolling down
-      if (isAtBottom && e.deltaY > 0) {
+      if (isAtBottom() && e.deltaY > 0) { // Call the helper function
         if (readyToNavigate) {
           // They've scrolled again after the delay, allow page navigation
           return;
@@ -208,6 +219,7 @@ const WorkPage: React.FC = () => {
     };
   }, [readyToNavigate]);
 
+
   return (
     <>
       {/* Style block to hide the scrollbar */}
@@ -221,25 +233,30 @@ const WorkPage: React.FC = () => {
         }
       `}</style>
       <section className="h-screen flex flex-col bg-[#1a1a1a] text-white">
-        <div className="pt-4 sm:pt-8 md:pt-12">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-center">My Work Experience</h1>
-          <p className="text-lg text-gray-400 mb-8 text-center">
+        {/* Adjusted padding for smaller screens */}
+        <div className="pt-4 px-4 sm:px-6 md:pt-12 md:px-12">
+          {/* Adjusted text size for smaller screens */}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 md:mb-4 text-center">My Work Experience</h1>
+          {/* Adjusted text size for smaller screens */}
+          <p className="text-base sm:text-lg text-gray-400 mb-6 md:mb-8 text-center">
             A timeline of my professional journey and key projects.
           </p>
         </div>
         
         {/* This container holds the scrollable timeline */}
-        <div ref={scrollContainerRef} className="flex-grow overflow-y-auto px-4 sm:px-8 md:px-12 no-scrollbar">
-           <div className="max-w-4xl mx-auto pb-32"> {/* Increased padding-bottom here */}
-              <div className="relative">
-                {workExperience.map((job, index) => (
-                  <ProjectCard 
-                    key={index}
-                    {...job}
-                    isLast={index === workExperience.length - 1}
-                  />
-                ))}
-              </div>
+        {/* Adjusted horizontal padding for smaller screens */}
+        <div ref={scrollContainerRef} className="flex-grow overflow-y-auto px-4 md:px-12 no-scrollbar">
+           {/* max-w-4xl is good, mx-auto for centering, pb-32 for scroll area */}
+           <div className="max-w-4xl mx-auto pb-32">
+             <div className="relative">
+               {workExperience.map((job, index) => (
+                 <ProjectCard
+                   key={index}
+                   {...job}
+                   isLast={index === workExperience.length - 1}
+                 />
+               ))}
+             </div>
            </div>
         </div>
       </section>

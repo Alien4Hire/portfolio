@@ -1,9 +1,7 @@
-import React from "react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Sidebar from "./components/Sidebar";
-import ScrollIndicators from "./components/ScrollIndicator";
+import ClientLayout from "./components/Layouts/ClientLayout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,20 +20,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans bg-black text-white antialiased flex`}
+        className={`${geistSans.variable} ${geistMono.variable} font-sans bg-black text-white antialiased`}
       >
-        <Sidebar />
-        <ScrollIndicators />
-
-        <main className="ml-64 flex-1 min-h-screen bg-[#0a0a0a]">
-          {children}
-        </main>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );
